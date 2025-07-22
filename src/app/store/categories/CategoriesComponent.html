@@ -1,0 +1,117 @@
+<div class="container my-2 px-2">
+  <div class="row mt-4">
+    <div class="col-4">
+      <h1>Add category</h1>
+      <form #form="ngForm" (submit)="save()">
+        <div class="form-group mb-3">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [(ngModel)]="category().categoryName"
+            required
+            id="name"
+            placeholder="Name Required"
+          />
+          @if (!form.valid && form.touched) {
+          <span class="form-text text-danger"> Name Required </span>
+          }
+        </div>
+        <div
+          style="display: flex; gap: 0.5rem; align-items: center"
+          class="mt-3"
+        >
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="form.invalid"
+          >
+            Accept</button
+          >@if (category().idCategory !== 0) {<button
+            type="button"
+            class="btn btn-warning"
+            (click)="cancelEdition()"
+          >
+            Cancel edition</button
+          >}
+        </div>
+      </form>
+    </div>
+    <div class="col-8">
+      <p-table
+        [value]="categories"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        currentPageReportTemplate="{first} of {last} of a total of {totalRecords} categories"
+        [rowsPerPageOptions]="[5, 10]"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Total Products</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-category>
+          <tr>
+            <td>{{ category.categoryName }}</td>
+            <td>{{ category.totalProducts }}</td>
+            <td>
+              <p-button
+                icon="pi pi-pencil"
+                (click)="edit(category)"
+                styleClass="p-button-warning"
+              ></p-button>
+              <p-button
+                icon="pi pi-trash"
+                (click)="confirmDelete(category)"
+                styleClass="p-button-danger"
+                [ngStyle]="
+                category.totalProducts > 0
+                  ? { 'pointer-events': 'none', opacity: '0.6' }
+                  : {}
+              "
+              ></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <p-confirmDialog></p-confirmDialog>
+      <p-dialog
+        header="Alert"
+        [(visible)]="visibleError"
+        [style]="{ width: '50vw' }"
+      >
+        <p>
+          {{ errorMessage }}
+        </p>
+      </p-dialog>
+      <div *ngIf="showCustomConfirm" class="custom-dialog-overlay">
+        <div class="custom-dialog-box">
+          <div class="custom-dialog-header">Are you sure?</div>
+          <div class="custom-dialog-content">
+            <i
+              class="pi pi-exclamation-triangle"
+              style="font-size: 2rem; color: #e53935"
+            ></i>
+            <span>{{ customConfirmMessage }}</span>
+          </div>
+          <div class="custom-dialog-footer">
+            <button
+              class="btn btn-outline-secondary"
+              (click)="showCustomConfirm = false"
+            >
+              No
+            </button>
+            <button class="btn btn-danger" (click)="onCustomConfirmAccept()">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
