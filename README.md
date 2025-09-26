@@ -1,6 +1,6 @@
 ## AngularStore_20
 
-**AngularStore_20** is a web application that provides a user interface for managing categories and products. The application requires users to log in to access its features (Category Management and Product Management). This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 20.1.2.
+**AngularStore_20** is a web application that provides a user interface for managing categories and products developed with Angular 20.1.2. The application requires users to log in to access its features (Category Management and Product Management). It uses Bootstrap 5, PrimeNG and JWT for authentication.
 
 ![AngularStore](img/UML.png)
 
