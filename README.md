@@ -43,7 +43,7 @@ AngularStore_20/
 ├───environments/  
 │   ├───EnvironmentDevelopment.ts  
 │   └───Environment.ts  
-├───main.ts 
+├───main.ts   
 ├───angular.json  
 └───package.json  
 
