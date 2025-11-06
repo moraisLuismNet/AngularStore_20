@@ -6,10 +6,10 @@ import {
   ElementRef,
   signal,
 } from '@angular/core';
-import { StoreService } from '../StoreService';
+import { StoreService } from '../store.service';
 import { ConfirmationService } from 'primeng/api';
 import { NgForm } from '@angular/forms';
-import { StoreInterface, ProductInterface } from '../StoreInterface';
+import { StoreInterface, ProductInterface } from '../store.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
@@ -20,8 +20,8 @@ import { viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './ProductsComponent.html',
-  styleUrls: ['./ProductsComponent.css'],
+  templateUrl: './products.html',
+  styleUrls: ['./products.css'],
   providers: [ConfirmationService],
   imports: [
     CommonModule,

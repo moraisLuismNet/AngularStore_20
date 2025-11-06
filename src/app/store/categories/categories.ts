@@ -1,8 +1,8 @@
 import { inject, Component, OnInit, viewChild, signal } from '@angular/core';
-import { StoreService } from '../StoreService';
+import { StoreService } from '../store.service';
 import { NgForm } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
-import { StoreInterface } from '../StoreInterface';
+import { StoreInterface } from '../store.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
@@ -12,8 +12,8 @@ import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-categories',
-  templateUrl: './CategoriesComponent.html',
-  styleUrls: ['./CategoriesComponent.css'],
+  templateUrl: './categories.html',
+  styleUrls: ['./categories.css'],
   providers: [ConfirmationService],
   imports: [
     CommonModule,

@@ -1,16 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/AppCompondent';
+import { AppComponent } from './app/app';
 import { importProvidersFrom, inject } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, Routes } from '@angular/router';
-import { LoginComponent } from './app/start/login/LoginComponent';
-import { NotFoundComponent } from './app/start/not-found/NotFoundComponent';
-import { StoreComponent } from './app/store/StoreComponent';
-import { CategoriesComponent } from './app/store/categories/CategoriesComponent';
-import { ProductsComponent } from './app/store/products/ProductsComponent';
-import { AuthGuardService } from './app/guards/AuthGuardService';
+import { LoginComponent } from './app/start/login/login';
+import { NotFoundComponent } from './app/start/not-found/not-found';
+import { StoreComponent } from './app/store/store';
+import { CategoriesComponent } from './app/store/categories/categories';
+import { ProductsComponent } from './app/store/products/products';
+import { AuthGuardService } from './app/guards/auth-guard';
 
 export const canActivate = () => inject(AuthGuardService).isLoggedIn();
 

@@ -7,44 +7,43 @@
 AngularStore_20/  
 ├───app/  
 │   ├───guards/  
-│   │   └───AuthGuardService.ts  
+│   │   └───auth-guard.ts  
 │   ├───interfaces/  
-│   │   └───LoginInterface.ts  
+│   │   └───login.interface.ts  
 │   ├───services/  
-│   │   └───AppService.ts  
+│   │   └───app.ts  
 │   ├───shared/  
 │   │   ├───navbar/  
-│   │   │   ├───NavbarComponent.html  
-│   │   │   └───NavbarComponent.ts  
-│   │   └───shared.module.ts  
+│   │   │   ├───navbar.html  
+│   │   │   └───navbar.ts  
 │   ├───start/  
 │   │   ├───login/  
-│   │   │   ├───LoginComponent.css  
-│   │   │   ├───LoginComponent.html  
-│   │   │   └───LoginComponent.ts  
+│   │   │   ├───login.css  
+│   │   │   ├───login.html  
+│   │   │   └───login.ts  
 │   │   ├───not-found/  
-│   │   │   ├───NotFoundComponent.css  
-│   │   │   ├───NotFoundComponent.html  
-│   │   │   └───NotFoundComponent.ts  
-│   │   └───start.module.ts  
+│   │   │   ├───not-found.css  
+│   │   │   ├───not-found.html  
+│   │   │   └───not-found.ts  
 │   ├───store/  
 │   │   ├───categories/  
-│   │   │   ├───CategoriesComponent.css  
-│   │   │   ├───CategoriesComponent.html  
-│   │   │   └───CategoriesComponent.ts  
+│   │   │   ├───categories.css  
+│   │   │   ├───categories.html  
+│   │   │   └───categories.ts  
 │   │   ├───products/  
-│   │   │   ├───ProductsComponent.css  
-│   │   │   ├───ProductsComponent.html  
-│   │   │   └───ProductsComponent.ts  
-│   │   ├───StoreComponent.html  
-│   │   ├───StoreComponent.ts  
-│   │   ├───StoreInterfaces.ts  
-│   │   ├───StoreService.ts  
-│   ├───AppComponent.html  
-│   └───AppComponent.ts  
+│   │   │   ├───products.css  
+│   │   │   ├───products.html  
+│   │   │   └───products.ts  
+│   │   ├───store.html  
+│   │   ├───store.ts  
+│   │   ├───store.interfaces.ts  
+│   │   ├───store.service.ts  
+│   ├───app.html  
+│   └───app.ts  
 ├───environments/  
 │   ├───EnvironmentDevelopment.ts  
 │   └───Environment.ts  
+├───main.ts 
 ├───angular.json  
 └───package.json  
 

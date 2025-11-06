@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/Environmet';
-import { AuthGuardService } from '../guards/AuthGuardService';
-import { StoreInterface, ProductInterface } from './StoreInterface';
+import { AuthGuardService } from '../guards/auth-guard';
+import { StoreInterface, ProductInterface } from './store.interface';
 
 @Injectable({
   providedIn: 'root',

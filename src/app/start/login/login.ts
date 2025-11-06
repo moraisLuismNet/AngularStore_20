@@ -4,17 +4,17 @@ import { MessageService } from 'primeng/api';
 import {
   LoginInterface,
   LoginResponseInterface,
-} from 'src/app/interfaces/LoginInterface';
-import { AppService } from 'src/app/services/AppService';
-import { AuthGuardService } from 'src/app/guards/AuthGuardService';
+} from 'src/app/interfaces/login.interface';
+import { AppService } from 'src/app/services/app';
+import { AuthGuardService } from 'src/app/guards/auth-guard';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './LoginComponent.html',
-  styleUrls: ['./LoginComponent.css'],
+  templateUrl: './login.html',
+  styleUrls: ['./login.css'],
   providers: [MessageService],
   imports: [CommonModule, FormsModule, ToastModule],
 })

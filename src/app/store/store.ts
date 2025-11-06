@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../shared/navbar/NavbarComponent';
+import { NavbarComponent } from '../shared/navbar/navbar';
 
 @Component({
   selector: 'app-store',
-  templateUrl: './StoreComponent.html',
+  templateUrl: './store.html',
   styles: [],
   imports: [RouterModule, NavbarComponent],
 })

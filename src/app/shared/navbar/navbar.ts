@@ -1,13 +1,12 @@
 import { inject, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuardService } from 'src/app/guards/AuthGuardService';
+import { AuthGuardService } from 'src/app/guards/auth-guard';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './NavbarComponent.html',
-  styleUrls: ['./NavbarComponent.css'],
+  templateUrl: './navbar.html',
   imports: [CommonModule, RouterModule],
 })
 export class NavbarComponent {

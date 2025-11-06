@@ -5,7 +5,7 @@ import { environment } from 'src/environments/Environmet';
 import {
   LoginInterface,
   LoginResponseInterface,
-} from '../interfaces/LoginInterface';
+} from '../interfaces/login.interface';
 
 @Injectable({
   providedIn: 'root',
