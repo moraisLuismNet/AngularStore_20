@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/Environmet';
+import { environment } from 'src/environments/environmet';
 import { AuthGuardService } from '../guards/auth-guard';
-import { StoreInterface, ProductInterface } from './store.interface';
+import {
+  StoreInterface,
+  ProductInterface,
+} from '../store/store.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,9 +17,12 @@ export class StoreService {
 
   getCategories(): Observable<StoreInterface[]> {
     const headers = this.getHeaders();
-    return this.http.get<StoreInterface[]>(`${this.urlAPI}categories`, {
-      headers,
-    });
+    return this.http.get<StoreInterface[]>(
+      `${this.urlAPI}categories`,
+      {
+        headers,
+      }
+    );
   }
 
   addCategory(category: StoreInterface): Observable<StoreInterface> {

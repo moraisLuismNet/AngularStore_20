@@ -6,7 +6,7 @@ import {
   ElementRef,
   signal,
 } from '@angular/core';
-import { StoreService } from '../store.service';
+import { StoreService } from '../../services/store';
 import { ConfirmationService } from 'primeng/api';
 import { NgForm } from '@angular/forms';
 import { StoreInterface, ProductInterface } from '../store.interface';
@@ -67,11 +67,11 @@ export class ProductsComponent implements OnInit {
 
   getCategories() {
     this.storeService.getCategories().subscribe({
-      next: (data) => {
+      next: (data: StoreInterface[]) => {
         this.visibleError = false;
         this.categories = data;
       },
-      error: (err) => {
+      error: (err: any) => {
         this.controlError(err);
       },
     });
@@ -79,11 +79,11 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.storeService.getProducts().subscribe({
-      next: (data) => {
+      next: (data: ProductInterface[]) => {
         this.visibleError = false;
         this.products = data;
       },
-      error: (err) => {
+      error: (err: any) => {
         this.controlError(err);
       },
     });
@@ -117,28 +117,41 @@ export class ProductsComponent implements OnInit {
   save() {
     if (this.product().idProduct === 0) {
       this.storeService.addProduct(this.product()).subscribe({
-        next: (data) => {
+        next: (data: ProductInterface) => {
           this.visibleError = false;
-          this.form()?.reset();
           this.getProducts();
+          this.form()?.resetForm();
+          this.product.set({
+            idProduct: 0,
+            productName: '',
+            price: 0,
+            photo: null,
+            discontinued: false,
+            categoryId: null,
+            categoryName: '',
+          });
         },
-        error: (err) => {
-          console.log(err);
-          this.visibleError = true;
+        error: (err: any) => {
           this.controlError(err);
         },
       });
     } else {
-      console.log('Updating product ID:', this.product().idProduct);
       this.storeService.updateProduct(this.product()).subscribe({
-        next: (data) => {
+        next: (data: ProductInterface) => {
           this.visibleError = false;
-          this.cancelEdition();
-          this.form()?.reset();
           this.getProducts();
+          this.form()?.resetForm();
+          this.product.set({
+            idProduct: 0,
+            productName: '',
+            price: 0,
+            photo: null,
+            discontinued: false,
+            categoryId: null,
+            categoryName: '',
+          });
         },
-        error: (err) => {
-          this.visibleError = true;
+        error: (err: any) => {
           this.controlError(err);
         },
       });
@@ -164,6 +177,7 @@ export class ProductsComponent implements OnInit {
       next: (data: ProductInterface) => {
         this.visibleError = false;
         this.getProducts();
+        this.showCustomConfirm = false;
       },
       error: (err: any) => {
         this.controlError(err);

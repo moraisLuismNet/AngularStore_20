@@ -11,7 +11,8 @@ AngularStore_20/
 │   ├───interfaces/  
 │   │   └───login.interface.ts  
 │   ├───services/  
-│   │   └───app.ts  
+│   │   ├───app.ts  
+│   │   ├───store.ts  
 │   ├───shared/  
 │   │   ├───navbar/  
 │   │   │   ├───navbar.html  
@@ -37,12 +38,11 @@ AngularStore_20/
 │   │   ├───store.html  
 │   │   ├───store.ts  
 │   │   ├───store.interfaces.ts  
-│   │   ├───store.service.ts  
 │   ├───app.html  
 │   └───app.ts  
 ├───environments/  
-│   ├───EnvironmentDevelopment.ts  
-│   └───Environment.ts  
+│   ├───environment.development.ts  
+│   └───environment.ts  
 ├───main.ts   
 ├───angular.json  
 └───package.json  

@@ -1,5 +1,5 @@
 import { inject, Component, OnInit, viewChild, signal } from '@angular/core';
-import { StoreService } from '../store.service';
+import { StoreService } from '../../services/store';
 import { NgForm } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
 import { StoreInterface } from '../store.interface';
@@ -48,11 +48,11 @@ export class CategoriesComponent implements OnInit {
 
   getCategories() {
     this.storeService.getCategories().subscribe({
-      next: (data) => {
+      next: (data: StoreInterface[]) => {
         this.visibleError = false;
         this.categories = data;
       },
-      error: (err) => {
+      error: (err: any) => {
         this.controlError(err);
       },
     });
@@ -61,24 +61,31 @@ export class CategoriesComponent implements OnInit {
   save() {
     if (this.category().idCategory === 0) {
       this.storeService.addCategory(this.category()).subscribe({
-        next: (data) => {
+        next: (data: any) => {
           this.visibleError = false;
-          this.form()?.reset();
           this.getCategories();
+          this.form()?.resetForm();
+          this.category.set({
+            idCategory: 0,
+            categoryName: '',
+          });
         },
-        error: (err) => {
+        error: (err: any) => {
           this.controlError(err);
         },
       });
     } else {
       this.storeService.updateCategory(this.category()).subscribe({
-        next: (data) => {
+        next: (data: any) => {
           this.visibleError = false;
-          this.cancelEdition();
-          this.form()?.reset();
           this.getCategories();
+          this.form()?.resetForm();
+          this.category.set({
+            idCategory: 0,
+            categoryName: '',
+          });
         },
-        error: (err) => {
+        error: (err: any) => {
           this.controlError(err);
         },
       });
@@ -112,16 +119,13 @@ export class CategoriesComponent implements OnInit {
 
   deleteCategory(id: number) {
     this.storeService.deleteCategory(id).subscribe({
-      next: (data) => {
+      next: (data: any) => {
         this.visibleError = false;
-        this.form()?.reset({
-          categoryName: '',
-        });
         this.getCategories();
+        this.showCustomConfirm = false;
       },
-      error: (err) => {
-        this.visibleError = true;
-        this.errorMessage = 'An error has occurred';
+      error: (err: any) => {
+        this.controlError(err);
       },
     });
   }
